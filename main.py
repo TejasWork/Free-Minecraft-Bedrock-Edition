@@ -78,6 +78,8 @@ try:
     else:
         print('Installing the latest available version of "Minecraft Bedrock Edition":')
         gdown.download(id=ids[1], output='Minecraft Bedrock Edition.appx', quiet=False)
+    print('Turning on sideloading to install "Minecraft Bedrock Edition":')
+    os.system('reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" /t REG_DWORD /f /v "AllowDevelopmentWithoutDevLicense" /d 1')
     print('Opening installer..')
     os.startfile('Minecraft Bedrock Edition.appx')
 except Exception as error:
